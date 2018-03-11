@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorator="template1">
+	<head>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type= "text/css" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}"/>
+	<title>Companies</title>
+	</head>
+	<body>
+		<div layout:fragment="content">
+			<div class="container">
+				<div class="col-md-9">
+					<div class="panel panel-primary">
+						<div class="panel-heading">Add a Company</div>
+						<div class="panel-body">
+
+							<form th:action="@{saveCompany}" method="post">
+								<div class="form-group">
+									<label class="control-label">Name </label>
+									<input class="form-control" type="text" name="name" th:value="${company.name}"/>
+									<span class="text-danger" th:errors="${company.name}"></span>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Email </label>
+									<input class="form-control" name="email" th:value="${company.email}"/>
+									<span class="text-danger" th:errors="${company.email}"></span>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Phone Number </label>
+									<input class="form-control" name="phone" th:value="${company.phone}"/>
+									<span class="text-danger" th:errors="${company.phone}"></span>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Tax Identifier </label>
+									<input class="form-control" name="taxIdNumber" th:value="${company.taxIdNumber}"/>
+									<span class="text-danger" th:errors="${company.taxIdNumber}"></span>
+								</div>
+								<button class="btn btn-primary">Add</button>
+							</form>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
